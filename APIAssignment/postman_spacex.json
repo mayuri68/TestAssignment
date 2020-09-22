@@ -1,0 +1,76 @@
+//Test 1
+pm.test("Check Return Code", function () {
+    pm.response.to.have.status(200);
+});
+
+//Test 2
+pm.test("Check youtube ID",function() {
+    var res=pm.response.json();
+    pm.expect(res.links.youtube_id).to.eql('jTMJK7wb0rM');
+
+});
+
+//Test 3
+pm.test("Check link webcast",function() {
+    var res=pm.response.json();
+    pm.expect(res.links.webcast).to.eql('https://youtu.be/jTMJK7wb0rM');
+
+});
+
+//Test 4
+pm.test("Check wikepedia link",function() {
+    var res=pm.response.json();
+    pm.expect(res.links.wikipedia).to.eql('https://en.wikipedia.org/wiki/Starlink');
+
+});
+
+//Test 5
+
+pm.test("Check ships",function() {
+    var res=pm.response.json();
+    pm.expect(res.fairings.ships[0]).to.eql('5ea6ed2e080df4000697c908');
+    pm.expect(res.fairings.ships[1]).to.eql('5ea6ed2e080df4000697c907');
+    
+
+});
+//Test 6
+
+pm.test("Success Validation", function () {
+    var res = pm.response.json();
+    pm.expect(res.success).to.eql(true);
+});
+
+//Test 7
+
+pm.test("Validate Rocket ID", function () {
+    var res = pm.response.json();
+    pm.expect(res.rocket).to.eql('5e9d0d95eda69973a809d1ec');
+});
+
+//Test 8
+
+pm.test("Check Payload", function () {
+    var res = pm.response.json();
+    pm.expect(res.payloads[0]).to.eql('5ed9859f1f30554030d45c3f');
+});
+
+//Test 9
+
+pm.test("Check launchpad", function () {
+    var res = pm.response.json();
+    pm.expect(res.launchpad).to.eql('5e9e4501f509094ba4566f84');
+});
+
+//Test 10
+pm.test("Check landpad", function () {
+    var res = pm.response.json();
+    pm.expect(res.cores[0].landpad).to.eql('5e9e3032383ecb6bb234e7ca');
+});
+
+//Test 11
+pm.test("Check core", function () {
+    var res = pm.response.json();
+    pm.expect(res.cores[0].core).to.eql('5e9e28a5f3591833b13b2659');
+});
+
+
